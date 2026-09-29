@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CV web de Guillem Pérez Rambaud — Software Developer">
+<title>Guillem Pérez Rambaud | Software Developer</title>
+<style>
+:root{--bg:#080b10;--panel:#10151d;--panel2:#141b25;--text:#edf2f7;--muted:#9da9b8;--accent:#69d6b4;--blue:#83a9ff;--line:#26303d;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}.container{max-width:var(--max);margin:auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:10;background:rgba(8,11,16,.82);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{height:64px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:19px;font-weight:800}.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:25px;color:var(--muted);font-size:13px}.navlinks a:hover{color:var(--text)}
+.language{display:flex;gap:4px;margin-left:22px}.language button{border:1px solid var(--line);background:transparent;color:var(--muted);padding:5px 8px;border-radius:6px;font:inherit;font-size:11px;font-weight:800;cursor:pointer}.language button.active,.language button:hover{background:var(--accent);border-color:var(--accent);color:#07110e}
+.hero{padding:92px 0 80px;display:grid;grid-template-columns:1.45fr .75fr;gap:65px;align-items:center}
+.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;color:var(--accent)}
+h1{font-size:clamp(48px,7vw,78px);line-height:.98;letter-spacing:-.06em;margin:16px 0 24px}
+h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1px #dce6f3}
+.subtitle{font-size:19px;color:#b8c3d1;max-width:720px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.btn{border:1px solid var(--line);padding:10px 15px;border-radius:8px;font-size:13px;font-weight:700;background:var(--panel)}
+.btn.main{background:var(--accent);color:#07110e;border-color:var(--accent)}
+.profile{padding:25px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#142033,#0f151e)}
+.initials{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:#1b293c;border:1px solid #38475e;color:var(--accent);font-weight:800;font-size:23px;margin-bottom:22px}
+.profile .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em}.profile strong{display:block;font-size:24px;margin:2px 0 3px}.profile p{margin:0 0 18px;color:var(--muted);font-size:13px}
+section{border-top:1px solid var(--line);padding:72px 0}.heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:35px}
+h2{font-size:34px;line-height:1.05;letter-spacing:-.04em;margin:0}.heading p{max-width:520px;color:var(--muted);margin:0}
+.timeline{border-left:1px solid #344050;margin-left:8px;padding-left:30px}.job{position:relative;margin-bottom:44px}.job:last-child{margin-bottom:0}.job:before{content:"";position:absolute;left:-36px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg)}
+.job h3{margin:0;font-size:20px}.meta{color:var(--blue);font-size:12px;margin:3px 0 15px}.job ul{margin:0;padding-left:19px}.job li{color:#adb8c7;font-size:14px;margin-bottom:8px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.tag{font-size:11px;padding:5px 9px;border:1px solid var(--line);background:var(--panel);border-radius:999px;color:#c2ccda}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:23px}.card h3{margin:0 0 8px;font-size:18px}.card p,.card li{font-size:13px;color:var(--muted)}.card ul{padding-left:18px}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skill{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:18px}.skill b{display:block;margin-bottom:5px;font-size:14px}.skill span{font-size:12px;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}.cert{padding:15px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:15px}.cert:last-child{border:0}.cert b{font-size:13px}.cert span{font-size:11px;color:var(--blue)}
+.contact{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.contactbox{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:19px}.contactbox small{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;margin-bottom:5px}.contactbox a{color:var(--accent);font-size:13px}
+footer{padding:35px 0 50px;color:#667386;font-size:11px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:65px}.navlinks{display:none}.cards,.two,.contact,.skills{grid-template-columns:1fr}.heading{display:block}.heading p{margin-top:10px}h1{font-size:53px}}
+@media print{nav,.actions{display:none}.hero{padding:25px 0}.profile,.card,.skill,.contactbox{background:white;border-color:#ccc}.job li,.card p,.card li,.skill span,.heading p{color:#222}body{background:white;color:#111}h1 em{color:#111;-webkit-text-stroke:0}section{padding:35px 0}}
+</style>
+</head>
+<body>
+<nav><div class="container nav"><a class="logo" href="#">GPR<span>.</span></a><div class="navlinks"><a href="#perfil">Perfil</a><a href="#experiencia">Experiencia</a><a href="#proyectos">Proyectos</a><a href="#tecnologias">Tecnologías</a><a href="#formacion">Formación</a><a href="#contacto">Contacto</a></div><div class="language" aria-label="Language selector"><button type="button" data-language="es" class="active">ES</button><button type="button" data-language="en">EN</button></div></div></nav>
+
+<header class="container hero" id="perfil">
+<div>
+<div class="kicker" data-i18n="kicker">Software Developer · Barcelona</div>
+<h1>Guillem Pérez<br><em>Rambaud</em></h1>
+<p class="subtitle" data-i18n="subtitle">Software Developer con experiencia profesional en el desarrollo de soluciones empresariales, automatización e integración de procesos. Experiencia trabajando con <b>Microsoft Power Platform, SharePoint, Python y herramientas de automatización de ciberseguridad</b>.</p>
+<div class="actions">
+<a class="btn" href="https://www.linkedin.com/in/guillemperezrambaud/" target="_blank">LinkedIn ↗</a>
+<a class="btn" href="https://github.com/GuillePR2407" target="_blank">GitHub ↗</a>
+<button class="btn main" data-i18n="pdfButton" onclick="window.print()">Guardar como PDF</button>
+</div>
+</div>
+<aside class="profile">
+<div class="initials">GP</div>
+<div class="label" data-i18n="profileLabel">Perfil técnico</div><strong>Automation</strong><p data-i18n="automationText">Python · Integraciones · Palo Alto XSOAR</p>
+<div class="label" data-i18n="microsoftLabel">Microsoft</div><strong>Power Platform</strong><p data-i18n="microsoftText">Power Apps · Power Automate · Power BI · SharePoint · Dataverse</p>
+</aside>
+</header>
+
+<section id="experiencia"><div class="container">
+<div class="heading"><h2 data-i18n="experienceTitle">Experiencia profesional</h2><p data-i18n="experienceIntro">Desarrollo de soluciones empresariales, automatización e integración, trabajando con clientes y tecnologías Microsoft.</p></div>
+<div class="timeline">
+<article class="job">
+<h3>Eviden / Atos — Software Developer</h3><div class="meta" data-i18n="currentMeta">Barcelona · 03/2024 — Actualidad</div>
+<ul>
+<li data-i18n="experience1">Desarrollé soluciones empresariales con <b>Microsoft Power Platform</b>, automatizando procesos y reduciendo trabajo manual mediante Power Automate, Power Apps y Power BI.</li>
+<li data-i18n="experience2">Implementé y mantuve automatizaciones e integraciones con <b>Python</b>, incluyendo desarrollo de playbooks e integraciones para <b>Palo Alto XSOAR</b> en proyectos de automatización de ciberseguridad.</li>
+<li data-i18n="experience3">Construí soluciones de análisis y visualización de datos con <b>Power BI</b>, utilizando SharePoint como fuente de información y automatizando procesos asociados a la recepción y transformación de archivos.</li>
+<li data-i18n="experience4">Participé en reuniones periódicas con clientes para recoger requisitos, definir el alcance de las soluciones y trasladar necesidades funcionales a implementaciones técnicas.</li>
+<li data-i18n="experience5">Trabajé con tecnologías Microsoft como <b>SharePoint, Power Platform, Power Apps, Power BI, Power Automate y Dynamics 365</b>, además de tecnologías de desarrollo como Python y ASP.NET.</li>
+<li data-i18n="experience6">Me adapté a proyectos y tecnologías diferentes, ampliando progresivamente el perfil desde desarrollo low-code hacia automatización, integración y programación.</li>
+</ul>
+<div class="tags"><span class="tag">Python</span><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">Power BI</span><span class="tag">SharePoint</span><span class="tag">Dataverse</span><span class="tag">XSOAR</span><span class="tag">Dynamics 365</span><span class="tag">ASP.NET</span></div>
+</article>
+<article class="job"><h3>Escola La Caixa — Técnico Informático</h3><div class="meta" data-i18n="internMeta">Barcelona · 12/2021 — 05/2022 · Prácticas</div><ul><li data-i18n="internText">Realicé soporte y tareas técnicas de sistemas informáticos durante el periodo de prácticas.</li></ul></article>
+</div></div></section>
+
+<section id="proyectos"><div class="container">
+<div class="heading"><h2 data-i18n="projectsTitle">Proyectos y especialización</h2><p data-i18n="projectsIntro">Áreas de trabajo incluidas en el CV.</p></div>
+<div class="cards">
+<div class="card"><h3 data-i18n="project1Title">Automatización con Palo Alto XSOAR</h3><p data-i18n="project1Text">Desarrollo de integraciones y playbooks con Python para automatizar tareas y flujos relacionados con operaciones de ciberseguridad.</p></div>
+<div class="card"><h3 data-i18n="project2Title">Business Intelligence</h3><p data-i18n="project2Text">Desarrollo de soluciones con Power BI y SharePoint para centralizar, procesar y visualizar información procedente de archivos.</p></div>
+<div class="card"><h3 data-i18n="project3Title">Automatización de procesos</h3><p data-i18n="project3Text">Creación de flujos con Power Automate para recepción, tratamiento y generación de información.</p></div>
+<div class="card"><h3 data-i18n="project4Title">Desarrollo empresarial</h3><p data-i18n="project4Text">Participación en soluciones con Power Apps, SharePoint, Dataverse / Power Platform y Dynamics 365.</p></div>
+</div></div></section>
+
+<section id="tecnologias"><div class="container">
+<div class="heading"><h2 data-i18n="technologyTitle">Tecnologías</h2><p data-i18n="technologyIntro">Stack técnico reflejado en el CV.</p></div>
+<div class="skills">
+<div class="skill"><b data-i18n="languagesTitle">Lenguajes</b><span>Python · Java · Kotlin · SQL · HTML · CSS · XML · JSON</span></div>
+<div class="skill"><b>Microsoft / Automation</b><span>Power Platform · Power Apps · Power Automate · Power BI · SharePoint · Dynamics 365 · Dataverse · Palo Alto XSOAR</span></div>
+<div class="skill"><b data-i18n="toolsTitle">Datos / herramientas</b><span>MySQL · Oracle SQL · MongoDB · Git · Odoo · ASP.NET</span></div>
+</div></div></section>
+
+<section id="formacion"><div class="container">
+<div class="heading"><h2 data-i18n="educationTitle">Formación y certificaciones</h2><p data-i18n="educationIntro">Formación técnica y certificaciones Microsoft incluidas en el CV.</p></div>
+<div class="two">
+<div class="card">
+<h3 data-i18n="degree1">Máster en Inteligencia Artificial y Big Data</h3><div class="meta" data-i18n="degree1Meta">Institut TIC de Barcelona · 09/2025 — Actualidad</div>
+<h3 data-i18n="degree2">Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</h3><div class="meta" data-i18n="degree2Meta">Institut TIC de Barcelona · 09/2023 — 07/2024</div>
+<h3 data-i18n="degree3">Técnico en Sistemas Microinformáticos y Redes</h3><div class="meta" data-i18n="degree3Meta">IES Joan d’Austria · 2020 — 2022</div>
+</div>
+<div class="card">
+<div class="cert"><b>Microsoft Certified: Power Platform Functional Consultant Associate</b><span>PL-200</span></div>
+<div class="cert"><b>Microsoft Certified: Power Platform Fundamentals</b><span>PL-900</span></div>
+<div class="cert"><b>Microsoft Certified: Power BI Data Analyst Associate</b><span>PL-300</span></div>
+<div class="cert"><b>Microsoft Certified: Dynamics 365 Fundamentals (CRM)</b><span>MB-910</span></div>
+</div>
+</div></div></section>
+
+<section><div class="container">
+<div class="heading"><h2 data-i18n="skillsTitle">Competencias e idiomas</h2><p data-i18n="skillsIntro">Información personal y profesional recogida en el CV.</p></div>
+<div class="cards">
+<div class="card"><h3 data-i18n="strengthsTitle">Competencias</h3><p data-i18n="strengthsText">Resolución de problemas · Autoaprendizaje · Adaptabilidad · Organización · Responsabilidad · Comunicación con cliente</p></div>
+<div class="card"><h3 data-i18n="languagesSpokenTitle">Idiomas</h3><p data-i18n="languagesSpokenText"><b>Español:</b> Nativo · <b>Catalán:</b> Nativo · <b>Inglés:</b> B2</p></div>
+</div></div></section>
+
+<section id="contacto"><div class="container">
+<div class="heading"><h2 data-i18n="contactTitle">Contacto</h2><p data-i18n="location">Barcelona, España.</p></div>
+<div class="contact">
+<div class="contactbox"><small>EMAIL</small><a href="mailto:gperezrambaud@gmail.com">gperezrambaud@gmail.com</a></div>
+<div class="contactbox"><small data-i18n="phoneLabel">TELÉFONO</small><a>+34 654 021 212</a></div>
+<div class="contactbox"><small>LINKEDIN</small><a href="https://www.linkedin.com/in/guillemperezrambaud/" target="_blank">linkedin.com/in/guillemperezrambaud ↗</a></div>
+<div class="contactbox"><small>GITHUB</small><a href="https://github.com/GuillePR2407" target="_blank">github.com/GuillePR2407 ↗</a></div>
+</div></div></section>
+
+<footer><div class="container" data-i18n="footer">© 2026 Guillem Pérez Rambaud · Software Developer</div></footer>
+<script>
+const english = {
+	nav: ['Profile', 'Experience', 'Projects', 'Technologies', 'Education', 'Contact'],
+	kicker: 'Software Developer · Barcelona',
+	subtitle: 'Software Developer with professional experience building business solutions, process automation and integrations. Experienced with <b>Microsoft Power Platform, SharePoint, Python and cybersecurity automation tools</b>.',
+	contactButton: 'Contact me', pdfButton: 'Save as PDF', profileLabel: 'Technical profile', automationText: 'Python · Integrations · Palo Alto XSOAR', microsoftLabel: 'Microsoft', microsoftText: 'Power Apps · Power Automate · Power BI · SharePoint · Dataverse',
+	experienceTitle: 'Professional experience', experienceIntro: 'Building business solutions, automations and integrations while working with clients and Microsoft technologies.', currentMeta: 'Barcelona · 03/2024 — Present',
+	experience1: 'Developed business solutions with <b>Microsoft Power Platform</b>, automating processes and reducing manual work through Power Automate, Power Apps and Power BI.', experience2: 'Implemented and maintained automations and integrations with <b>Python</b>, including playbooks and integrations for <b>Palo Alto XSOAR</b> in cybersecurity automation projects.', experience3: 'Built data analysis and visualization solutions with <b>Power BI</b>, using SharePoint as an information source and automating file intake and transformation processes.', experience4: 'Joined regular client meetings to gather requirements, define solution scope and translate functional needs into technical implementations.', experience5: 'Worked with Microsoft technologies including <b>SharePoint, Power Platform, Power Apps, Power BI, Power Automate and Dynamics 365</b>, as well as development technologies such as Python and ASP.NET.', experience6: 'Adapted to different projects and technologies, progressively expanding my profile from low-code development into automation, integration and programming.', internMeta: 'Barcelona · 12/2021 — 05/2022 · Internship', internText: 'Provided IT support and carried out technical systems tasks during my internship.',
+	projectsTitle: 'Projects and specialisation', projectsIntro: 'Areas of work included in the CV.', project1Title: 'Palo Alto XSOAR automation', project1Text: 'Developing Python integrations and playbooks to automate tasks and workflows related to cybersecurity operations.', project2Title: 'Business Intelligence', project2Text: 'Developing Power BI and SharePoint solutions to centralise, process and visualise information from files.', project3Title: 'Process automation', project3Text: 'Creating Power Automate flows for receiving, processing and generating information.', project4Title: 'Business development', project4Text: 'Contributing to solutions with Power Apps, SharePoint, Dataverse / Power Platform and Dynamics 365.',
+	technologyTitle: 'Technologies', technologyIntro: 'Technical stack reflected in the CV.', languagesTitle: 'Languages', toolsTitle: 'Data / tools',
+	educationTitle: 'Education and certifications', educationIntro: 'Technical education and Microsoft certifications included in the CV.', degree1: 'Master\'s Degree in Artificial Intelligence and Big Data', degree1Meta: 'Institut TIC de Barcelona · 09/2025 — Present', degree2: 'Higher Technician in Multiplatform Application Development (DAM)', degree2Meta: 'Institut TIC de Barcelona · 09/2023 — 07/2024', degree3: 'Technician in Microcomputer Systems and Networks', degree3Meta: 'IES Joan d’Austria · 2020 — 2022',
+	skillsTitle: 'Skills and languages', skillsIntro: 'Personal and professional information included in the CV.', strengthsTitle: 'Strengths', strengthsText: 'Problem-solving · Self-learning · Adaptability · Organisation · Accountability · Client communication', languagesSpokenTitle: 'Languages', languagesSpokenText: '<b>Spanish:</b> Native · <b>Catalan:</b> Native · <b>English:</b> B2',
+	contactTitle: 'Contact', location: 'Barcelona, Spain.', phoneLabel: 'PHONE', footer: '© 2026 Guillem Pérez Rambaud · Software Developer'
+};
+
+const targets = [...document.querySelectorAll('[data-i18n]')];
+const original = new Map(targets.map((element) => [element, element.innerHTML]));
+const navLinks = [...document.querySelectorAll('.navlinks a')];
+const navOriginal = navLinks.map((link) => link.innerHTML);
+
+function setLanguage(language) {
+	const isEnglish = language === 'en';
+	document.documentElement.lang = language;
+	document.title = isEnglish ? 'Guillem Pérez Rambaud | Software Developer' : 'Guillem Pérez Rambaud | Software Developer';
+	document.querySelector('meta[name="description"]').content = isEnglish ? 'Online CV of Guillem Pérez Rambaud — Software Developer' : 'CV web de Guillem Pérez Rambaud — Software Developer';
+	targets.forEach((element) => { element.innerHTML = isEnglish ? english[element.dataset.i18n] : original.get(element); });
+	navLinks.forEach((link, index) => { link.innerHTML = isEnglish ? english.nav[index] : navOriginal[index]; });
+	document.querySelectorAll('[data-language]').forEach((button) => button.classList.toggle('active', button.dataset.language === language));
+}
+
+document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+</script>
+</body>
+</html>
